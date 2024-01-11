@@ -22,6 +22,11 @@ function getPlants () {
   return plantTable.find()
 }
 
+function getOne (id) {
+  return plantTable.findOne({_id: id})
+}
+
 module.exports = {
-  getPlants
+  getPlants,
+  getOne
 }

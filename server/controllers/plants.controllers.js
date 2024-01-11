@@ -11,4 +11,16 @@ async function getPlants (req, res) {
   }
 }
 
-module.exports = {getPlants}
+async function getOne (req, res) {
+  try {
+    const id = req.params.id;
+    const plant = await plantsModel.getOne(id);
+    res.status(200);
+    res.send(plant);
+  } catch (error) {
+    res.status(500);
+    res.send(error);
+  }
+}
+
+module.exports = {getPlants, getOne}
