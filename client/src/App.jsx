@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import PlantDetailsPage from './pages/PlantDetailPage';
 import DiaryScreen from './components/DiaryScreen/DiaryScreen';
+import AddPlantPage from './pages/AddPlantPage';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/' element={<GardenPage />}/>
         <Route path='/myplant/:id' element={<PlantDetailsPage />}/>
         <Route path='/myplant/:id/diary' element={<DiaryScreen />}/>
+        <Route path='/addPlant' element={<AddPlantPage />} />
       </Routes>
       <MenuBar className="menu-bar"/>
     </>

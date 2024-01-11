@@ -11,7 +11,7 @@ export default function MenuBar () {
         <Link to='/'>Home</Link>
       </button>
       <button>
-        <Link to='/'>Add</Link>
+        <Link to='/addPlant'>Add</Link>
       </button>
     </div>
   )
