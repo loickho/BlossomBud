@@ -1,13 +1,23 @@
 .diary-slider {
-  background-color: rgba(9, 77, 9, 0.829);
-  border-radius: 20px;
+  background-color: rgba(148, 186, 148, 0.829);
+  border-radius: 18px;
   height: 50px;
   width: 65%;
   margin-top: 20px;
   display: flex;
   justify-content: space-around;
+  overflow: hidden;
+  position: relative;
 }
 
 button {
   background: none;
+}
+
+.selected {
+  background-color: rgba(9, 77, 9, 0.829);
+  width: 40%;
+  color: #fff;
+  border-radius: 18px;
+  transition: background-color 0.3s, width 0.3s, color 0.3s;
 }
