@@ -1,8 +1,24 @@
+.card {
+  position: relative;
+}
+
 img {
   object-fit: cover;
   width: 140px;
   height: 140px;
-  border-radius: 12px;
-  border: 1px solid black;
+  border-radius: 14px;
+  border: 1px solid #000000;
   margin-bottom: 1em;
+}
+
+.badge {
+  position: absolute;
+  top: 2%;
+  right: 6%;
+  background-color: rgb(4, 102, 145);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
 }
