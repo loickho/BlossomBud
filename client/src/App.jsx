@@ -1,9 +1,12 @@
-import './App.css'
+import './App.css';
+import GardenPage from './pages/GardenPage';
 
 function App() {
 
   return (
-    <h1>test</h1>
+    <div id="app">
+      <GardenPage />
+    </div>
   )
 }
 

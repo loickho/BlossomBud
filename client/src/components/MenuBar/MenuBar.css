@@ -1,0 +1,10 @@
+#menubar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  justify-content: center;
+  align-items: center;
+}
