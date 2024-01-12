@@ -9,7 +9,7 @@ export default function DiaryScreen() {
       <h1>Diary</h1>
       <Camera />
       <CardCollection />
-      <DiarySlider />
+      <DiarySlider left={'overview'} right={'diary'}/>
     </div>
   )
 }

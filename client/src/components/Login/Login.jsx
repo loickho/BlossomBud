@@ -3,6 +3,7 @@ import { useState } from 'react';
 import auth from '../utils/auth';
 import apiService from '../../ApiService';
 import { useNavigate } from 'react-router-dom';
+import './Login.css'
 
 const initialState = {
   email: '',
@@ -40,7 +41,7 @@ const Login = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <section>
+    <div className="login">
       <h2>Login</h2>
       <form className="form" onSubmit={handleSubmit}>
         <input
@@ -58,10 +59,10 @@ const Login = ({ setIsAuthenticated }) => {
           onChange={handleChange}
         />
         <button className="form-submit" type="submit" disabled={validateForm()}>
-          &nbsp;Login&nbsp;
+          Login
         </button>
       </form>
-    </section>
+    </div>
   );
 };
 

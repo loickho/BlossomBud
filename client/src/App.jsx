@@ -8,6 +8,7 @@ import PlantDetailsPage from './pages/PlantDetailPage';
 import DiaryScreen from './components/DiaryScreen/DiaryScreen';
 import AddPlantPage from './pages/AddPlantPage';
 import RegisterLoginPage from './pages/RegisterLoginPage';
+import auth from './components/utils/auth';
 import { useState } from 'react';
 
 function PrivateRoute ({ element, isAuthenticated, fallbackPath = '/login' }) {
@@ -15,7 +16,8 @@ function PrivateRoute ({ element, isAuthenticated, fallbackPath = '/login' }) {
 }
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const initialState = auth.isAuthenticated();
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   return (
     <>

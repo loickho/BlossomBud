@@ -112,7 +112,7 @@ const Register = ({ setIsAuthenticated }) => {
       <form className="form" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="name@mail.com"
+          placeholder="email"
           name="email"
           value={state.email}
           onChange={handleChange}
