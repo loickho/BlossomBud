@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 async function create (req, res) {
   const { email, password } = req.body;
-  const user = await usersModel.findOne({ email: email });
+  const user = await usersModel.login(email);
   if (user)
     return res
       .status(409)
@@ -26,7 +26,7 @@ async function create (req, res) {
 async function login (req, res) {
   try {
     const { email, password } = req.body;
-    const user = await usersModel.findOne({ email: email });
+    const user = await usersModel.findOne(email);
     const validatedPass = await bcrypt.compare(password, user.password);
     if (!validatedPass) throw new Error();
     req.session.uid = user._id;

@@ -14,6 +14,16 @@ function getUser (id) {
   return userTable.findOne({_id: id})
 }
 
+function login (email) {
+  return userTable.findOne({ email: email })
+}
+
+function create (email) {
+  return userTable.findOne({ email: email })
+}
+
 module.exports = {
-  getUser
+  getUser,
+  login,
+  create
 }
