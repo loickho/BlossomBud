@@ -13,7 +13,8 @@ const plantSchema = new mongoose.Schema({
   soil_type: String,
   pruning_requirements: String,
   mature_size: String,
-  pest_and_disease_susceptibility: String
+  pest_and_disease_susceptibility: String,
+  growing_season: String
 })
 
 const plantTable = mongoose.model('plants', plantSchema);
