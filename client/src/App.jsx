@@ -7,18 +7,15 @@ import Header from './components/Header/Header';
 import PlantDetailsPage from './pages/PlantDetailPage';
 import DiaryScreen from './components/DiaryScreen/DiaryScreen';
 import AddPlantPage from './pages/AddPlantPage';
-import RegisterLogin from './pages/RegisterLogin';
+import RegisterLoginPage from './pages/RegisterLoginPage';
 import { useState } from 'react';
 
 function PrivateRoute ({ element, isAuthenticated, fallbackPath = '/login' }) {
-  console.log('isAuthenticated:', isAuthenticated);
-  console.log('fallbackPath:', fallbackPath);
-
   return isAuthenticated ? element : <Navigate to={fallbackPath} />;
 }
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
     <>
@@ -26,7 +23,7 @@ function App() {
       <Routes>
       <Route
           path="/login"
-          element={<RegisterLogin />}
+          element={<RegisterLoginPage isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>}
         />
         <Route
           path="/"
@@ -37,7 +34,7 @@ function App() {
                     />}
         />
         <Route
-          path="/myplant/:id"
+          path="/myPlant/:id"
           element={<PrivateRoute
                       element={<PlantDetailsPage />}
                       isAuthenticated={isAuthenticated}

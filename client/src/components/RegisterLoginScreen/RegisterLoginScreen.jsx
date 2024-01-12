@@ -2,11 +2,12 @@ import './RegisterLoginScreen.css'
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 
-export default function RegisterLoginScreen () {
+// eslint-disable-next-line react/prop-types
+export default function RegisterLoginScreen ({isAuthenticated, setIsAuthenticated}) {
   return (
     <div className="register-login-screen">
-      <Register />
-      <Login />
+      <Register isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>
+      <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>
     </div>
   )
 }

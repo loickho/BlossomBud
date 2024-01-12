@@ -3,12 +3,16 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 const session = require('express-session');
-const SECRET = process.env.SECRET
-const router = require('./router')
+const SECRET = process.env.SECRET || 'SECRET'
+const router = require('./router');
 
-app.use(cors());
+const corsConfig = {
+  origin: 'http://localhost:5173',
+  credentials: true,
+};
+
+app.use(cors(corsConfig));
 app.use(express.json());
-app.use(router);
 
 app.use(
   session({
@@ -24,6 +28,8 @@ app.use(
     },
   })
 );
+
+app.use(router);
 
 
 app.listen(port, () => {

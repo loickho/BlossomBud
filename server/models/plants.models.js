@@ -17,17 +17,16 @@ const plantSchema = new mongoose.Schema({
   growing_season: String
 })
 
-const plantTable = mongoose.model('plants', plantSchema);
+const plantsTable = mongoose.model('plants', plantSchema);
 
-function getPlants () {
-  return plantTable.find()
-}
+// function getPlants () {
+//   return plantsTable.find()
+// }
 
-function getOne (id) {
-  return plantTable.findOne({_id: id})
-}
+// function getOne (id) {
+//   return plantsTable.findOne({_id: id})
+// }
 
 module.exports = {
-  getPlants,
-  getOne
+  plantsTable
 }
