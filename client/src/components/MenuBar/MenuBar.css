@@ -16,3 +16,12 @@ button {
   box-shadow: none;
   border: none;
 }
+
+.nav-item {
+  color: white;
+  font-size: 24px;
+}
+
+#home-button {
+  font-size: 32px;
+}

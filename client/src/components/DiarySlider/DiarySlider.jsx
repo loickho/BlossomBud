@@ -15,13 +15,13 @@ export default function DiarySlider () {
         className={selectedOption === 'OVERVIEW' ? 'selected' : ''}
         onClick={() => handleClick('OVERVIEW')}
       >
-        <Link to='/myplant/:id'>OVERVIEW</Link>
+        <Link className='slider' to='/myplant/:id'>OVERVIEW</Link>
       </button>
       <button
         className={selectedOption === 'DIARY' ? 'selected' : ''}
         onClick={() => handleClick('DIARY')}
       >
-        <Link to='/myplant/:id/diary'>DIARY</Link>
+        <Link className='slider' to='/myplant/:id/diary'>DIARY</Link>
       </button>
     </div>
   )

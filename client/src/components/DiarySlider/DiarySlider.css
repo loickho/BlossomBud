@@ -21,3 +21,10 @@ button {
   border-radius: 18px;
   transition: background-color 0.3s, width 0.3s, color 0.3s;
 }
+
+.slider {
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.87);
+}

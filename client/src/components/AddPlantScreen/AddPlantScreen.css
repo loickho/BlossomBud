@@ -1,0 +1,4 @@
+.add-plant-screen {
+  display: flex;
+  flex-direction: column;
+}

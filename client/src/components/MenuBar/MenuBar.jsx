@@ -1,17 +1,19 @@
 import './MenuBar.css';
 import { Link } from 'react-router-dom';
+import { PiPottedPlantDuotone } from "react-icons/pi";
+import { FaUser, FaCamera } from "react-icons/fa";
 
 export default function MenuBar () {
   return (
     <div className="menu-bar">
       <button>
-        <Link to='/account'>Account</Link>
+        <Link className='nav-item' to='/account'><FaUser /></Link>
       </button>
       <button>
-        <Link to='/'>Home</Link>
+        <Link className='nav-item' to='/' id='home-button'><PiPottedPlantDuotone /></Link>
       </button>
       <button>
-        <Link to='/addPlant'>Add</Link>
+        <Link className='nav-item' to='/addPlant'><FaCamera /></Link>
       </button>
     </div>
   )
