@@ -13,7 +13,7 @@ async function getAllPlants (req, res) {
 
 async function getPlant (req, res) {
   try {
-    const id = req.params.id;
+    const id = req.params.plant_id;
     const plant = await plantsTable.findOne({ _id: id });
     res.status(200);
     res.send(plant);
@@ -25,5 +25,5 @@ async function getPlant (req, res) {
 
 module.exports = {
   getAllPlants,
-  getPlant
+  getPlant,
 }

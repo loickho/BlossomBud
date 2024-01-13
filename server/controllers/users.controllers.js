@@ -1,4 +1,6 @@
 const { userTable } = require('../models/users.models');
+const { plantsTable } = require ('../models/plants.models');
+
 const bcrypt = require('bcrypt');
 
 const create = async (req, res) => {
@@ -26,8 +28,8 @@ const create = async (req, res) => {
   } catch (error) {
     res.status(400).send({ error, message: 'Could not create user' });
   }
-  // REMOVE-END
 };
+
 async function login (req, res) {
   try {
     const { email, password } = req.body;
@@ -43,9 +45,9 @@ async function login (req, res) {
   }
 };
 
-async function getUser(req, res) {
+async function getUser (req, res) {
   try {
-    const id = req.params.id;
+    const id = req.params.user_id;
     const user = await userTable.findOne({ _id: id });
     res.status(200);
     res.send(user);
@@ -55,8 +57,54 @@ async function getUser(req, res) {
   }
 }
 
+async function getUserPlant (req, res) {
+  try {
+    const user_id = req.params.user_id;
+    const plant_id = req.params.plant_id;
+    // find user (get images from here)
+    const userInfo = await userTable.findOne({ _id : user_id });
+    // get plant details from plants table
+    const plantInfo = await plantsTable.findOne({ _id : plant_id});
+
+    // const parsedUserInfo = JSON.parse(userInfo);
+    // console.log('parsed')
+    const filteredPictures = userInfo.garden
+    .filter((plant) => plant.plantid === plant_id)
+    console.log(filteredPictures);
+
+
+    const infoToSend = {
+      _id: userInfo._id,
+      diary: filteredPictures[0].pictures,
+      plantDetails: {
+        name: plantInfo.name,
+        temperature: plantInfo.temperature,
+        humidity: plantInfo.humidity,
+        watering: plantInfo.watering,
+        sunlight: plantInfo.sunlight,
+        safe_for_pets: plantInfo.safe_for_pets,
+        repotting: plantInfo.repotting,
+        fertilization: plantInfo.fertilization,
+        soil_type: plantInfo.soil_type,
+        pruning_requirements: plantInfo.pruning_requirements,
+        mature_size: plantInfo.mature_size,
+        pest_and_disease_susceptibility: plantInfo.pest_and_disease_susceptibility,
+        growing_season: plantInfo.growing_season,
+      }
+    }
+
+    res.status(200);
+    res.send(infoToSend);
+  } catch (error) {
+    res.status(500);
+    console.log(error);
+    res.send(error);
+  }
+}
+
 module.exports = {
   create,
   login,
-  getUser
+  getUser,
+  getUserPlant
 }

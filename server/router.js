@@ -7,8 +7,9 @@ router.post('/login', usersController.login);
 
 router.get('/', (req, res) => res.send('hello world!'))
 router.get('/getAll', plantsController.getAllPlants);
-router.get('/:id', plantsController.getPlant);
+router.get('/:plant_id', plantsController.getPlant);
 
-router.get('/myGarden/:id', usersController.getUser);
+router.get('/myGarden/:user_id', usersController.getUser);
+router.get('/myGarden/:user_id/:plant_id', usersController.getUserPlant)
 
 module.exports = router;
