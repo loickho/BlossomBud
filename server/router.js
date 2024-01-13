@@ -11,6 +11,6 @@ router.get('/:plant_id', plantsController.getPlant);
 
 router.get('/myGarden/:user_id', usersController.getUser);
 router.get('/myGarden/:user_id/:plant_id', usersController.getUserPlant)
-// router.post('/addDiary', usersController.addToDiary)
+router.put('/:user_id/addUserPlant', usersController.addUserPlant)
 
 module.exports = router;

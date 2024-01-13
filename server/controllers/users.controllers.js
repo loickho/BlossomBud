@@ -96,19 +96,28 @@ async function getUserPlant (req, res) {
   }
 }
 
-// async function addToDiary (req, res) {
-//   try {
-//     const { image } = req.body;
-//   } catch (error) {
-//     res.status(500);
-//     res.send(error);
-//   }
-// }
+async function addUserPlant (req, res) {
+  try {
+    const { userId, plantid, pictures } = req.body;
+    const userInfo = await userTable.findOne({ _id : userId });
+    const newPlant = {
+      plantid: plantid,
+      pictures: [pictures]
+    }
+    userInfo.garden.unshift(newPlant);
+    const savedInfo = await userInfo.save();
+    res.status(201);
+    res.send(savedInfo);
+  } catch (error) {
+    res.status(500);
+    res.send(error);
+  }
+}
 
 module.exports = {
   create,
   login,
   getUser,
   getUserPlant,
-  // addToDiary
+  addUserPlant
 }
