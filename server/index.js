@@ -4,12 +4,19 @@ const app = express();
 const port = 3000;
 const session = require('express-session');
 const SECRET = process.env.SECRET || 'SECRET'
+const cloudinary = require('cloudinary').v2;
 const router = require('./router');
 
 const corsConfig = {
   origin: 'http://localhost:5173',
   credentials: true,
 };
+
+cloudinary.config({
+  cloud_name: 'dyif3hely',
+  api_key: '458386542317894',
+  api_secret: 'uCN0Cou4X0h1GYRAB9BS7L3cd2E',
+});
 
 app.use(cors(corsConfig));
 app.use(express.json());

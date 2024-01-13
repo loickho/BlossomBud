@@ -4,7 +4,6 @@ const { plantsTable } = require ('../models/plants.models');
 const bcrypt = require('bcrypt');
 
 const create = async (req, res) => {
-  // REMOVE-START
   const { username, email, password } = req.body;
   const user = await userTable.findOne({ email: email });
   if (user) {
@@ -12,7 +11,6 @@ const create = async (req, res) => {
       .status(409)
       .send({ error: '409', message: 'User already exists' });
   }
-
   try {
     console.log('hello')
     if (password === '') throw new Error();
@@ -66,13 +64,11 @@ async function getUserPlant (req, res) {
     // get plant details from plants table
     const plantInfo = await plantsTable.findOne({ _id : plant_id});
 
-    // const parsedUserInfo = JSON.parse(userInfo);
-    // console.log('parsed')
     const filteredPictures = userInfo.garden
     .filter((plant) => plant.plantid === plant_id)
     console.log(filteredPictures);
 
-
+    // combine user images with plant details
     const infoToSend = {
       _id: userInfo._id,
       diary: filteredPictures[0].pictures,
@@ -92,19 +88,27 @@ async function getUserPlant (req, res) {
         growing_season: plantInfo.growing_season,
       }
     }
-
     res.status(200);
     res.send(infoToSend);
   } catch (error) {
     res.status(500);
-    console.log(error);
     res.send(error);
   }
 }
+
+// async function addToDiary (req, res) {
+//   try {
+//     const { image } = req.body;
+//   } catch (error) {
+//     res.status(500);
+//     res.send(error);
+//   }
+// }
 
 module.exports = {
   create,
   login,
   getUser,
-  getUserPlant
+  getUserPlant,
+  // addToDiary
 }
