@@ -12,7 +12,6 @@ const create = async (req, res) => {
       .send({ error: '409', message: 'User already exists' });
   }
   try {
-    console.log('hello')
     if (password === '') throw new Error();
     const hash = await bcrypt.hash(password, 10);
     const newUser = new userTable({
@@ -66,7 +65,6 @@ async function getUserPlant (req, res) {
 
     const filteredPictures = userInfo.garden
     .filter((plant) => plant.plantid === plant_id)
-    console.log(filteredPictures);
 
     // combine user images with plant details
     const infoToSend = {
