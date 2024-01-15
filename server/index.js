@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 const session = require('express-session');
 const SECRET = process.env.SECRET || 'SECRET'
-const cloudinary = require('cloudinary').v2;
+// const cloudinary = require('cloudinary').v2;
 const router = require('./router');
 
 const corsConfig = {

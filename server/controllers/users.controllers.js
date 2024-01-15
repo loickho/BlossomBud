@@ -44,10 +44,11 @@ async function login (req, res) {
 
 async function profile (req, res) {
   try {
-    const { _id, firstName, lastName } = req.user;
-    const user = { _id, firstName, lastName };
+    const { _id } = req.user;
+    const user = { _id };
     res.status(200).send(user);
   } catch {
+    console.error(`Error in profile function`, error)
     res.status(404).send({ error, message: 'User not found' });
   }
 }

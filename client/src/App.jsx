@@ -17,19 +17,24 @@ function PrivateRoute ({ element, isAuthenticated, fallbackPath = '/login' }) {
 function App() {
   const initialState = auth.isAuthenticated();
   const [isAuthenticated, setIsAuthenticated] = useState(initialState);
-  // TODO: CHANGE this to authenticated user
+  const [userId, setUserId] = useState('65a3bc46cf27217f859a6002')
 
   async function getUserId() {
-    const response = await fetch(`http://localhost:3000/me`, {
-      method: 'GET',
-      credentials: 'include',
-      mode: 'cors',
-      headers: { 'Content-Type': 'application/json' },
-    })
-    .then((res) => res.json())
-    .then((err) => console.log(err))
+    try {
+      const response = await fetch(`http://localhost:3000/me`, {
+        method: 'GET',
+        credentials: 'include',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      const data = await response.json();
+      // console.log(data)
+      setUserId(data._id);
+    } catch (err) {
+      console.error(err);
+    }
   }
-  const [userId, setUserId] = useState('65a3bc46cf27217f859a6002')
 
   return (
     <>
