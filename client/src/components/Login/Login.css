@@ -1,7 +1,35 @@
+.login {
+  display: flex;
+}
+
 .form-submit {
   background-color: rgba(9, 77, 9, 0.829);
   color: white;
   font-weight: bold;
   font-size: 18px;
   padding: 12px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+}
+
+#login-header {
+  margin-top: 30px;
 }

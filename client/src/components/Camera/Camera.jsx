@@ -56,9 +56,9 @@ export default function Camera ({ capturedImage, setCapturedImage}) {
   return (
     <div>
       {!capturedImage && (
-        <div>
+        <div className='camera'>
           {!showCamera ? (
-            <button onClick={startCamera} className='shutter-button'>Add picture📸</button>
+            <button onClick={startCamera} className='shutter-button'>Take a picture</button>
           ) : (
             <div>
               <Webcam

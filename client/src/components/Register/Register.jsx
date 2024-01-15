@@ -108,7 +108,7 @@ const Register = ({ setIsAuthenticated }) => {
 
   return (
     <section>
-      <h2>Register</h2>
+      {/* <h2>Register</h2> */}
       <form className="form" onSubmit={handleSubmit}>
         <input
           type="text"

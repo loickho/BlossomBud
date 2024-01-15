@@ -43,12 +43,13 @@ const Login = ({ getUserId, setIsAuthenticated }) => {
 
   return (
     <div className="login">
-      <h2>Login</h2>
-      <form className="form" onSubmit={handleSubmit}>
+      {/* <h2 className='header' id="login-header">Login</h2> */}
+      <form className="login-form" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="email"
           name="email"
+          autoComplete="on"
           value={state.email}
           onChange={handleChange}
         />
@@ -56,6 +57,7 @@ const Login = ({ getUserId, setIsAuthenticated }) => {
           type="password"
           placeholder="password"
           name="password"
+          autoComplete="on"
           value={state.password}
           onChange={handleChange}
         />
