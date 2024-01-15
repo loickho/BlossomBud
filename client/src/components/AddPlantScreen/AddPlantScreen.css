@@ -12,3 +12,39 @@ form {
   font-size: 2rem;
   color: black;
 }
+
+select {
+  width: 80%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 0 auto 20px;
+}
+
+select option {
+  background-color: #fff;
+  color: #333;
+}
+
+select:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+}
+
+.questions {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.question-section {
+  background-color: rgba(96, 186, 96, 0.686);
+  border-radius: 12px;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}

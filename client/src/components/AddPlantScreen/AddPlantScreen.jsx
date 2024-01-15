@@ -46,18 +46,24 @@ export default function AddPlantScreen ({ userId }) {
       <h2 className="header">Add a new plant</h2>
       <Camera capturedImage={capturedImage} setCapturedImage={setCapturedImage}/>
       <form onSubmit={handleSubmit}>
-      <select name="plantName">
-        {plants.map(plant => {
-          return <option key={plant._id} value={`${plant._id}`}>{plant.name}</option>
-        })}
-      </select>
-      <p>How many days ago did you last water your plant?</p>
-      <select name="daysSinceWatering">
-        {Array.from({ length: 12 }, (_,i) => (
-          <option key={i+1} value={i+1}>{i+1}</option>
-        ))}
-      </select>
-        <button type="submit">Add Plant</button>
+        <div className="question-section">
+          <p className="questions">What kind of plant do you have?</p>
+          <select name="plantName">
+            {plants.map(plant => {
+              return <option key={plant._id} value={`${plant._id}`}>{plant.name}</option>
+            })}
+          </select>
+        </div>
+        <div className="question-section">
+          <p className="questions">How many days ago did you last water your plant?</p>
+          <select name="daysSinceWatering">
+            {Array.from({ length: 12 }, (_,i) => (
+              <option key={i+1} value={i+1}>{i+1}</option>
+            ))}
+          </select>
+        </div>
+        {/* TODO: make button component */}
+        <button className="submit-button button" type="submit">Add Plant</button>
       </form>
     </div>
   )

@@ -19,7 +19,7 @@ export default function LogoutScreen ({ setIsAuthenticated }) {
   };
 
   return (
-    <button className='logout-button' onClick={handleClick}>
+    <button className='logout-button button' onClick={handleClick}>
       Log out
     </button>
   )
