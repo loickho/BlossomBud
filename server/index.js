@@ -12,11 +12,11 @@ const corsConfig = {
   credentials: true,
 };
 
-cloudinary.config({
-  cloud_name: 'dyif3hely',
-  api_key: '458386542317894',
-  api_secret: 'uCN0Cou4X0h1GYRAB9BS7L3cd2E',
-});
+// cloudinary.config({
+//   cloud_name: 'dyif3hely',
+//   api_key: '',
+//   api_secret: '',
+// });
 
 app.use(cors(corsConfig));
 app.use(express.json());

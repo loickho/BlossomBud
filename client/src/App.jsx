@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import './App.css';
 import GardenPage from './pages/GardenPage';
 import MenuBar from './components/MenuBar/MenuBar';
@@ -8,7 +7,7 @@ import PlantDetailsPage from './pages/PlantDetailPage';
 import DiaryPage from './pages/DiaryPage';
 import AddPlantPage from './pages/AddPlantPage';
 import RegisterLoginPage from './pages/RegisterLoginPage';
-import auth from './components/utils/auth';
+import auth from './utils/auth';
 import { useState } from 'react';
 
 function PrivateRoute ({ element, isAuthenticated, fallbackPath = '/login' }) {
@@ -17,8 +16,19 @@ function PrivateRoute ({ element, isAuthenticated, fallbackPath = '/login' }) {
 
 function App() {
   const initialState = auth.isAuthenticated();
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-  // CHANGE this to authenticated user
+  const [isAuthenticated, setIsAuthenticated] = useState(initialState);
+  // TODO: CHANGE this to authenticated user
+
+  async function getUserId() {
+    const response = await fetch(`http://localhost:3000/me`, {
+      method: 'GET',
+      credentials: 'include',
+      mode: 'cors',
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then((res) => res.json())
+    .then((err) => console.log(err))
+  }
   const [userId, setUserId] = useState('65a3bc46cf27217f859a6002')
 
   return (
@@ -27,7 +37,7 @@ function App() {
       <Routes>
       <Route
           path="/login"
-          element={<RegisterLoginPage isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>}
+          element={<RegisterLoginPage getUserId={getUserId} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>}
         />
         <Route
           path="/"

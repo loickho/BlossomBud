@@ -1,9 +1,13 @@
-const User = require('./../models/user');
+const { userTable } = require('../models/users.models');
+const { isValidObjectId } = require('mongoose');
 
 const authMiddleware = async (req, res, next) => {
   try {
     const { uid } = req.session;
-    const user = await User.findOne({ _id: uid });
+    if (!isValidObjectId(uid)) {
+      throw new Error('Invalid user ID');
+    }
+    const user = await userTable.findOne({ _id: uid });
     if (!user) throw new Error();
     req.user = user;
     next();

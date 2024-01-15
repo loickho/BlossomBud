@@ -42,6 +42,16 @@ async function login (req, res) {
   }
 };
 
+async function profile (req, res) {
+  try {
+    const { _id, firstName, lastName } = req.user;
+    const user = { _id, firstName, lastName };
+    res.status(200).send(user);
+  } catch {
+    res.status(404).send({ error, message: 'User not found' });
+  }
+}
+
 async function getUser (req, res) {
   try {
     const id = req.params.user_id;
@@ -115,6 +125,7 @@ async function addUserPlant (req, res) {
 module.exports = {
   create,
   login,
+  profile,
   getUser,
   getUserPlant,
   addUserPlant

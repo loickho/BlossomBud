@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import auth from '../utils/auth';
+import auth from '../../utils/auth';
 import apiService from '../../ApiService';
 import { useNavigate } from 'react-router-dom';
 import './Login.css'
@@ -10,7 +10,7 @@ const initialState = {
   password: '',
 };
 
-const Login = ({ setIsAuthenticated }) => {
+const Login = ({ getUserId, setIsAuthenticated }) => {
   let navigate = useNavigate();
   const [state, setState] = useState(initialState);
 
@@ -34,6 +34,7 @@ const Login = ({ setIsAuthenticated }) => {
       setIsAuthenticated(true);
       auth.login(() => navigate('/'));
     }
+    getUserId();
   };
 
   const validateForm = () => {

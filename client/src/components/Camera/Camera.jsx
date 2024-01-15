@@ -29,7 +29,7 @@ export default function Camera ({ capturedImage, setCapturedImage}) {
 
   //   const formData = new FormData();
   //   formData.append('file', capturedImage);
-  //   formData.append('api_key', '976969835629962');
+  //   formData.append('api_key', '');
   //   // formData.append('upload_preset', uploadPreset);
   //   formData.append('timestamp', timestamp);
   //   formData.append("public_id", "sample_image");

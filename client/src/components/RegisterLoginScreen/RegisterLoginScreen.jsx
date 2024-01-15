@@ -5,7 +5,7 @@ import RegisterLoginSlider from '../RegisterLoginSlider/RegisterLoginSlider';
 import { useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
-export default function RegisterLoginScreen ({isAuthenticated, setIsAuthenticated}) {
+export default function RegisterLoginScreen ({ getUserId, isAuthenticated, setIsAuthenticated }) {
   const [selectedOption, setSelectedOption] = useState('REGISTER');
 
   return (
@@ -14,7 +14,7 @@ export default function RegisterLoginScreen ({isAuthenticated, setIsAuthenticate
       {selectedOption == 'REGISTER' &&
       <Register isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>}
       {selectedOption == 'LOGIN' &&
-      <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>}
+      <Login getUserId={getUserId} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>}
     </div>
   )
 }

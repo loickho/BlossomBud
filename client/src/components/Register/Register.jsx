@@ -64,7 +64,7 @@
 
 
 import { useState } from 'react';
-import auth from '../utils/auth';
+import auth from '../../utils/auth';
 import apiService from '../../ApiService';
 import { useNavigate } from 'react-router-dom';
 
