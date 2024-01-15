@@ -7,6 +7,7 @@ import PlantDetailsPage from './pages/PlantDetailPage';
 import DiaryPage from './pages/DiaryPage';
 import AddPlantPage from './pages/AddPlantPage';
 import RegisterLoginPage from './pages/RegisterLoginPage';
+import Profile from './pages/ProfilePage';
 import auth from './utils/auth';
 import { useState } from 'react';
 
@@ -77,8 +78,16 @@ function App() {
                     />}
         />
         <Route
+          path="/profile"
+          element={<PrivateRoute
+                      element={<Profile userId={userId} setIsAuthenticated={setIsAuthenticated}/>}
+                      isAuthenticated={isAuthenticated}
+                      fallbackPath="/login"
+                    />}
+        />
+        <Route
           path="*"
-          element={<Navigate to="/login" />}
+          element={<Navigate to="/" />}
         />
       </Routes>
       <MenuBar className="menu-bar"/>

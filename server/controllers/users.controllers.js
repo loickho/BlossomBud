@@ -53,6 +53,19 @@ async function profile (req, res) {
   }
 }
 
+async function logout (req, res) {
+  req.session.destroy((error) => {
+    if (error) {
+      res
+        .status(500)
+        .send({ error, message: 'Could not log out, please try again' });
+    } else {
+      res.clearCookie('sid');
+      res.status(200).send({ message: 'Logout successful' });
+    }
+  });
+};
+
 async function getUser (req, res) {
   try {
     const id = req.params.user_id;
@@ -127,6 +140,7 @@ module.exports = {
   create,
   login,
   profile,
+  logout,
   getUser,
   getUserPlant,
   addUserPlant

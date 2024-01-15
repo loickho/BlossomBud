@@ -6,6 +6,7 @@ const authMiddleware = require('./middlewares/auth');
 router.post('/register', usersController.create);
 router.post('/login', usersController.login);
 router.get('/me', authMiddleware, usersController.profile);
+router.post('/logout', authMiddleware, usersController.logout);
 
 router.get('/', (req, res) => res.send('hello world!'))
 router.get('/getAll', plantsController.getAllPlants);

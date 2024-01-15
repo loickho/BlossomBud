@@ -7,7 +7,7 @@ export default function MenuBar () {
   return (
     <div className="menu-bar">
       <button>
-        <Link className='nav-item' to='/account'><FaUser /></Link>
+        <Link className='nav-item' to='/profile'><FaUser /></Link>
       </button>
       <button>
         <Link className='nav-item' to='/' id='home-button'><PiPottedPlantDuotone /></Link>
