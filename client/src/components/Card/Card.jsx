@@ -2,13 +2,13 @@ import './Card.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Card () {
+export default function Card ({ id, pictures }) {
   const [badge, setBadge] = useState(true);
 
   return (
     <div className='card'>
-      <Link to='/myplant/:id'>
-        <img className='card-img' src="https://www.mein-schoener-garten.de/sites/default/files/styles/inline_scaled_l_16_9/public/korbmarante-aufmacher-696763350-istock.jpg?h=bfa41935&itok=2dTflD7-" />
+      <Link to={`/myplant/${id}`}>
+        <img className='card-img' src={pictures[0]} alt={`Plant ${id}`}/>
       </Link>
       {badge && <div className="badge">3</div>}
     </div>

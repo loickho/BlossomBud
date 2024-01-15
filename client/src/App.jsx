@@ -5,7 +5,7 @@ import MenuBar from './components/MenuBar/MenuBar';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Header from './components/Header/Header';
 import PlantDetailsPage from './pages/PlantDetailPage';
-import DiaryScreen from './components/DiaryScreen/DiaryScreen';
+import DiaryPage from './pages/DiaryPage';
 import AddPlantPage from './pages/AddPlantPage';
 import RegisterLoginPage from './pages/RegisterLoginPage';
 import auth from './components/utils/auth';
@@ -18,6 +18,8 @@ function PrivateRoute ({ element, isAuthenticated, fallbackPath = '/login' }) {
 function App() {
   const initialState = auth.isAuthenticated();
   const [isAuthenticated, setIsAuthenticated] = useState(true);
+  // CHANGE this to authenticated user
+  const [userId, setUserId] = useState('65a3bc46cf27217f859a6002')
 
   return (
     <>
@@ -30,23 +32,23 @@ function App() {
         <Route
           path="/"
           element={<PrivateRoute
-                      element={<GardenPage />}
+                      element={<GardenPage userId={userId}/>}
                       isAuthenticated={isAuthenticated}
                       fallbackPath="/login"
                     />}
         />
         <Route
-          path="/myPlant/:id"
+          path="/myPlant/:plantId"
           element={<PrivateRoute
-                      element={<PlantDetailsPage />}
+                      element={<PlantDetailsPage userId={userId}/>}
                       isAuthenticated={isAuthenticated}
                       fallbackPath="/login"
                     />}
         />
         <Route
-          path="/myplant/:id/diary"
+          path="/myplant/:plantId/diary"
           element={<PrivateRoute
-                      element={<DiaryScreen />}
+                      element={<DiaryPage userId={userId} />}
                       isAuthenticated={isAuthenticated}
                       fallbackPath="/login"
                     />}
@@ -54,7 +56,7 @@ function App() {
         <Route
           path="/addPlant"
           element={<PrivateRoute
-                      element={<AddPlantPage />}
+                      element={<AddPlantPage userId={userId} />}
                       isAuthenticated={isAuthenticated}
                       fallbackPath="/login"
                     />}

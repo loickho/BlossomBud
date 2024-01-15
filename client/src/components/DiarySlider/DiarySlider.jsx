@@ -1,9 +1,11 @@
 import './DiarySlider.css';
+import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function DiarySlider () {
   const [selectedOption, setSelectedOption] = useState('OVERVIEW');
+  const { plantId } = useParams();
 
   const handleClick = (option) => {
     setSelectedOption(option);

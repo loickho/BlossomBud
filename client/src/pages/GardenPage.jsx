@@ -1,10 +1,10 @@
 import GardenScreen from "../components/GardenScreen/GardenScreen"
 import '../App.css';
 
-export default function GardenPage () {
+export default function GardenPage ({ userId }) {
   return (
     <div className="garden-page">
-      <GardenScreen />
+      <GardenScreen userId={userId} />
     </div>
   )
 }

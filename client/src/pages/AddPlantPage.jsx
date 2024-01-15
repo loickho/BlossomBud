@@ -1,9 +1,9 @@
 import AddPlantScreen from "../components/AddPlantScreen/AddPlantScreen";
 
-export default function AddPlantPage () {
+export default function AddPlantPage ({ userId }) {
   return (
     <div className="add-plant-page">
-      <AddPlantScreen />
+      <AddPlantScreen userId={userId}/>
     </div>
   )
 }
