@@ -2,6 +2,39 @@ const BASE_URL = 'http://localhost:3000';
 
 const apiService = {};
 
+apiService.fetchUserPlants = (userId) => {
+  return fetch(`${BASE_URL}/mygarden/${userId}`, {
+    method: 'GET',
+    credentials: 'include',
+    mode: 'cors',
+    headers: { 'Content-Type': 'application/json' },
+  })
+  .then((res) => res.json())
+  .catch((err) => console.log(err))
+}
+
+apiService.fetchPlantDetails = (userId, plantId) => {
+  return fetch(`${BASE_URL}/mygarden/${userId}/${plantId}`, {
+    method: 'GET',
+    credentials: 'include',
+    mode: 'cors',
+    headers: { 'Content-Type': 'application/json' },
+  })
+  .then((res) => res.json())
+  .catch((err) => console.log(err))
+}
+
+apiService.getAllPlants = () => {
+  return fetch(`${BASE_URL}/getall`, {
+    method: 'GET',
+    credentials: 'include',
+    mode: 'cors',
+    headers: { 'Content-Type': 'application/json' },
+  })
+  .then((res) => res.json())
+  .catch((err) => console.log(err))
+}
+
 apiService.register = (user) => {
   return fetch(`${BASE_URL}/register`, {
     method: 'POST',

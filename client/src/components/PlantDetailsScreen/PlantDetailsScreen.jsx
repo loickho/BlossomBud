@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import './PlantDetailsScreen.css';
 import DiarySlider from '../DiarySlider/DiarySlider';
+import apiService from '../../ApiService';
 import { useState, useEffect } from 'react';
 
 export default function PlantDetailsScreen ({ userId }) {
@@ -9,18 +10,13 @@ export default function PlantDetailsScreen ({ userId }) {
 
   useEffect(() => {
     async function fetchData () {
-      try {
-        const response = await fetch(`http://localhost:3000/mygarden/${userId}/${plantId}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const data = await response.json();
-        setPlantData(data);
-      } catch (error) {
-        console.error(error);
+      const res = await apiService.fetchPlantDetails(userId, plantId);
+      if (res.error) {
+        alert(`${res.message}`)
+      } else {
+        setPlantData(res)
       }
-    };
-
+    }
     fetchData();
   }, [])
 

@@ -10,7 +10,6 @@ form {
 
 .header {
   font-size: 2rem;
-  color: black;
 }
 
 select {
@@ -37,6 +36,8 @@ select:focus {
 .questions {
   font-size: 18px;
   margin-bottom: 6px;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 .question-section {

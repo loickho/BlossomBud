@@ -1,5 +1,6 @@
 import Camera from "../Camera/Camera";
 import './AddPlantScreen.css';
+import apiService from "../../ApiService";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -9,24 +10,20 @@ export default function AddPlantScreen ({ userId }) {
   const [capturedImage, setCapturedImage] = useState(null);
 
   useEffect(() => {
-    async function fetchData () {
-      try {
-        const response = await fetch('http://localhost:3000/getall');
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
+      async function fetchData () {
+        const res = await apiService.getAllPlants();
+        if (res.error) {
+          alert(`${res.message}`)
+        } else {
+          setPlants(res)
         }
-        const data = await response.json();
-        setPlants(data);
-      } catch (error) {
-        console.error(error);
       }
-    };
-
-    fetchData();
+      fetchData();
   }, [])
 
-  async function handleSubmit (event) {
 
+
+  async function handleSubmit (event) {
     event.preventDefault();
     const selectedPlant = event.target.elements.plantName.value;
     const response = await fetch(`http://localhost:3000/${userId}/addUserPlant`, {
@@ -42,7 +39,6 @@ export default function AddPlantScreen ({ userId }) {
 
   return (
     <div className="add-plant-screen">
-      <hr />
       <h2 className="header">Add a new plant</h2>
       <Camera capturedImage={capturedImage} setCapturedImage={setCapturedImage}/>
       <form onSubmit={handleSubmit}>

@@ -1,5 +1,6 @@
 import CardCollection from '../CardCollection/CardCollection';
 import './GardenScreen.css';
+import apiService from '../../ApiService';
 import { useEffect, useState } from 'react';
 
 export default function GardenScreen ({ userId }) {
@@ -7,24 +8,20 @@ export default function GardenScreen ({ userId }) {
 
   useEffect(() => {
     async function fetchData () {
-      try {
-        const response = await fetch(`http://localhost:3000/mygarden/${userId}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const data = await response.json();
-        setUserPlants(data.garden);
-      } catch (error) {
-        console.error(error);
+      const res = await apiService.fetchUserPlants(userId);
+      if (res.error) {
+        alert(`${res.message}`)
+      } else {
+        setUserPlants(res.garden)
       }
-    };
-
+    }
     fetchData();
   }, [userId])
 
+
   return (
     <div id="garden">
-      <h3>My Garden</h3>
+      <h2 className='header'>My Garden</h2>
       <CardCollection userPlants={userPlants} />
     </div>
   )

@@ -18,7 +18,7 @@ function PrivateRoute ({ element, isAuthenticated, fallbackPath = '/login' }) {
 function App() {
   const initialState = auth.isAuthenticated();
   const [isAuthenticated, setIsAuthenticated] = useState(initialState);
-  const [userId, setUserId] = useState('65a3bc46cf27217f859a6002')
+  const [userId, setUserId] = useState('65a3bc46cf27217f859a6002');
 
   async function getUserId() {
     try {
@@ -30,7 +30,7 @@ function App() {
       });
 
       const data = await response.json();
-      // console.log(data)
+      console.log(data)
       setUserId(data._id);
     } catch (err) {
       console.error(err);
@@ -80,7 +80,7 @@ function App() {
         <Route
           path="/profile"
           element={<PrivateRoute
-                      element={<Profile userId={userId} setIsAuthenticated={setIsAuthenticated}/>}
+                      element={<Profile setIsAuthenticated={setIsAuthenticated}/>}
                       isAuthenticated={isAuthenticated}
                       fallbackPath="/login"
                     />}
