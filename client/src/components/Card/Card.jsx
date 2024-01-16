@@ -6,6 +6,7 @@ import apiService from '../../ApiService';
 export default function Card ({ id, pictures, userId, waterIn }) {
   const [badge, setBadge] = useState(waterIn);
 
+  // updates the badge every day and sends the updated number to the database
   useEffect(() => {
     const intervalId = setInterval(() => {
       setBadge((prevDays) => {
@@ -16,7 +17,7 @@ export default function Card ({ id, pictures, userId, waterIn }) {
 
         return updatedBadge;
       });
-    }, 5000);
+    }, 86400000);
 
     return () => clearInterval(intervalId);
   }, [userId, id]);

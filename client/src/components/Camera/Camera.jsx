@@ -1,7 +1,7 @@
 import Webcam from 'react-webcam';
 import { useRef, useState } from 'react';
 import './Camera.css';
-import CryptoJS from 'crypto-js';
+import { FaRegImages, FaCamera } from "react-icons/fa";
 
 export default function Camera ({ capturedImage, setCapturedImage}) {
   const webcamRef = useRef(null);
@@ -58,16 +58,18 @@ export default function Camera ({ capturedImage, setCapturedImage}) {
       {!capturedImage && (
         <div className='camera'>
           {!showCamera ? (
-            <button onClick={startCamera} className='shutter-button'>Take a picture</button>
+            <button onClick={startCamera} className='open-camera-button'><FaRegImages />
+            </button>
           ) : (
-            <div>
+            <div className='opened-camera'>
               <Webcam
                 audio={false}
                 ref={webcamRef}
                 screenshotFormat="image/jpeg"
                 className="webcam"
               />
-              <button onClick={capture}>Capture Photo</button>
+              <button className="shutter-button" onClick={capture}><FaCamera />
+</button>
             </div>
           )}
         </div>
