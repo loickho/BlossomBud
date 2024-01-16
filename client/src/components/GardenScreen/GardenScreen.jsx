@@ -22,7 +22,7 @@ export default function GardenScreen ({ userId }) {
   return (
     <div id="garden">
       <h2 className='header'>My Garden</h2>
-      <CardCollection userPlants={userPlants} />
+      <CardCollection userId={userId} userPlants={userPlants} />
     </div>
   )
 }

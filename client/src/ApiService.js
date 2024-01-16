@@ -35,6 +35,18 @@ apiService.getAllPlants = () => {
   .catch((err) => console.log(err))
 }
 
+apiService.updateWaterIn = (userId, plantId, waterIn) => {
+  return fetch(`${BASE_URL}/mygarden/${userId}/${plantId}`, {
+    method: 'PUT',
+    credentials: 'include',
+    mode: 'cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ userId: userId, waterIn: waterIn, plantId: plantId })
+  })
+  .then((res) => res.json())
+  .catch((err) => console.log(err))
+}
+
 apiService.register = (user) => {
   return fetch(`${BASE_URL}/register`, {
     method: 'POST',

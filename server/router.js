@@ -15,5 +15,6 @@ router.get('/:plant_id', plantsController.getPlant);
 router.get('/myGarden/:user_id', usersController.getUser);
 router.get('/myGarden/:user_id/:plant_id', usersController.getUserPlant);
 router.put('/:user_id/addUserPlant', usersController.addUserPlant);
+router.put('/myGarden/:user_id/:plant_id', usersController.updateWaterIn);
 
 module.exports = router;

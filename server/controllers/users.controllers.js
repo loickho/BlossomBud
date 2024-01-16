@@ -122,9 +122,12 @@ async function addUserPlant (req, res) {
   try {
     const { userId, plantid, pictures } = req.body;
     const userInfo = await userTable.findOne({ _id : userId });
+    const plant = await plantsTable.findOne({ _id : plantid});
+    const waterEvery = plant.watering;
     const newPlant = {
       plantid: plantid,
-      pictures: [pictures]
+      pictures: [pictures],
+      waterIn: waterEvery
     }
     userInfo.garden.unshift(newPlant);
     const savedInfo = await userInfo.save();
@@ -136,6 +139,28 @@ async function addUserPlant (req, res) {
   }
 }
 
+async function updateWaterIn (req, res) {
+  try {
+    const { userId, plantId, waterIn } = req.body;
+    const userInfo = await userTable.findOne({ _id : userId })
+    if (!userInfo) {
+      return res.status(404).json({ error: 'User not found'});
+    }
+    const plantIndex = userInfo.garden.findIndex((plant) => plant.plantid == plantId);
+    userInfo.garden[plantIndex].waterIn = waterIn;
+    const updatedUser = await userTable.findOneAndUpdate(
+      { _id: userId },
+      { $set: { garden: userInfo.garden } },
+      { new: true }
+    );
+    res.status(201);
+    res.send(updatedUser.garden[plantIndex].waterIn);
+  } catch (error) {
+    res.status(500);
+    res.send(error)
+  }
+}
+
 module.exports = {
   create,
   login,
@@ -143,5 +168,6 @@ module.exports = {
   logout,
   getUser,
   getUserPlant,
-  addUserPlant
+  addUserPlant,
+  updateWaterIn
 }

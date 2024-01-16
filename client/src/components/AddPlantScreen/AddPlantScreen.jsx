@@ -21,10 +21,12 @@ export default function AddPlantScreen ({ userId }) {
       fetchData();
   }, [])
 
-
-
   async function handleSubmit (event) {
     event.preventDefault();
+    if (!capturedImage) {
+      alert('Please take a photo of your plant.');
+      return;
+    }
     const selectedPlant = event.target.elements.plantName.value;
     const response = await fetch(`http://localhost:3000/${userId}/addUserPlant`, {
       method: 'PUT',
@@ -48,14 +50,6 @@ export default function AddPlantScreen ({ userId }) {
             {plants.map(plant => {
               return <option key={plant._id} value={`${plant._id}`}>{plant.name}</option>
             })}
-          </select>
-        </div>
-        <div className="question-section">
-          <p className="questions">How many days ago did you last water your plant?</p>
-          <select name="daysSinceWatering">
-            {Array.from({ length: 12 }, (_,i) => (
-              <option key={i+1} value={i+1}>{i+1}</option>
-            ))}
           </select>
         </div>
         {/* TODO: make button component */}
