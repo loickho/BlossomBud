@@ -25,6 +25,7 @@ Database: The application uses MongoDB as its database to store plant and user d
 ## What's missing
 - Changing the addPlant dropdown into a textbox, that, when text is entered, will search for matches. If none are found, the user types in the name of the plant and the app makes an API call to openAI to grab the relevant data, then saves the data in the database.
 - The diary needs some work.
+- Images should be uploaded to cloudinary instead of being saved directly in the database. 
 - Refactoring the getUserPlant endpoint; the way it is now, if a user adds two of the same plant, the images get switched up.
 - Implementing redux to manage state. There is currently quite a bit of prop drilling going on.
 - Turning the app into a PWA.
