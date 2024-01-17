@@ -1,8 +1,8 @@
-#BlossomBud Readme
+# BlossomBud Readme
 
 Welcome to BlossomBud, a React-based mobile application designed to help users nurture and care for their plants. This application utilizes an Express server, MongoDB as the database, and Mongoose as the Object-Relational Mapping tool.
 
-##Features
+## Features
 1. Plant Management
 Users can easily add and manage their plants in the garden. The app provides a user-friendly interface for adding each plant.
 
@@ -15,14 +15,21 @@ Never forget to water your plants again! BlossomBud reminds users about when to 
 4. Diary Functionality
 Users can upload photos to keep track of their plants' growth and see how they blossom over time!
 
-##Tech Stack
+## Tech Stack
 Front-end: The front-end of the application is built using React.
 
 Back-end: The back-end server is powered by Express.
 
 Database: The application uses MongoDB as its database to store plant and user data. Mongoose is employed as the ORM for simplified interaction with the MongoDB database.
 
-##To run the app:
+## What's missing
+- Changing the addPlant dropdown into a textbox, that, when text is entered, will search for matches. If none are found, the user types in the name of the plant and the app makes an API call to openAI to grab the relevant data, then saves the data in the database.
+- The diary needs some work.
+- Refactoring the getUserPlant endpoint; the way it is now, if a user adds two of the same plant, the images get switched up.
+- Turning the app into a PWA.
+- Making it so that when the app is opened on web, it will show what the app can do, and will tell the user to open on mobile to download. When the user opens on mobile, instructions pop up telling them how to install a PWA. 
+
+## To run the app:
 Start the client with `npm run dev`
 Start the server with `nodemon index.js`
 Set up your MongoDB connection in server/models/index.js
