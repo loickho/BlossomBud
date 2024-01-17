@@ -1,22 +1,6 @@
-import { useEffect, useState } from "react";
-import apiService from "../../ApiService";
 import './Overview.css';
 
-export default function Overview ({ userId, plantId }) {
-  const [plantData, setPlantData] = useState({});
-
-  useEffect(() => {
-    async function fetchData () {
-      const res = await apiService.fetchPlantDetails(userId, plantId);
-      if (res.error) {
-        alert(`${res.message}`)
-      } else {
-        setPlantData(res)
-      }
-    }
-    fetchData();
-  }, [userId])
-
+export default function Overview ({ plantData }) {
   return (
     <div className="overview">
       <img className='detail-img' src={plantData.diary && plantData.diary[0]} />

@@ -87,6 +87,7 @@ async function getUserPlant (req, res) {
     // get plant details from plants table
     const plantInfo = await plantsTable.findOne({ _id : plant_id});
 
+    // TODO: return the image of the correct plant if user has two of the same plant
     const filteredPictures = userInfo.garden
     .filter((plant) => plant.plantid === plant_id)
 

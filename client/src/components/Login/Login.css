@@ -3,7 +3,7 @@
 }
 
 .form-submit {
-  background-color: rgba(9, 77, 9, 0.829);
+  background-color: var(--mainGreen);
   color: white;
   font-weight: bold;
   font-size: 18px;

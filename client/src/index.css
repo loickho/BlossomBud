@@ -11,4 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --mainGreen: rgba(22, 74, 22, 0.97);
+  --secondaryGreen: rgba(96, 186, 96, 0.686);
 }

@@ -8,7 +8,7 @@
 }
 
 .info {
-  background-color: rgba(96, 186, 96, 0.686);
+  background-color: var(--secondaryGreen);
   border-radius: 12px;
   margin-left: 5%;
   margin-right: 5%;

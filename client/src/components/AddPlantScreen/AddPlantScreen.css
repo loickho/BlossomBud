@@ -41,7 +41,7 @@ select:focus {
 }
 
 .question-section {
-  background-color: rgba(96, 186, 96, 0.686);
+  background-color: var(--secondaryGreen);
   border-radius: 12px;
   margin-top: 20px;
   margin-left: 10%;

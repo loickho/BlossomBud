@@ -16,7 +16,7 @@ button {
 }
 
 .selected {
-  background-color: rgba(9, 77, 9, 0.829);
+  background-color: var(--mainGreen);
   width: 40%;
   color: #fff;
   border-radius: 18px;
