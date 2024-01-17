@@ -23,8 +23,8 @@ Back-end: The back-end server is powered by Express.
 Database: The application uses MongoDB as its database to store plant and user data. Mongoose is employed as the ORM for simplified interaction with the MongoDB database.
 
 ##To run the app:
-Start the client with npm run dev
-Start the server with nodemon index.js
+Start the client with `npm run dev`
+Start the server with `nodemon index.js`
 Set up your MongoDB connection in server/models/index.js
 
 Happy gardening with BlossomBud! 🌿🌱
