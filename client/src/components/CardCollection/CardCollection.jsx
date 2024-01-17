@@ -2,12 +2,14 @@ import Card from '../Card/Card';
 import './CardCollection.css';
 
 export default function CardCollection ({ userPlants, userId }) {
-  const timestamp = Date.now();
+  function getRandomNumber() {
+    return Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+  }
   return (
     <div className="card-collection">
       {userPlants.map((plant) => {
-        // TODO: make each key unique
-        return <Card key={plant.plantid} id={plant.plantid} pictures={plant.pictures} userId={userId} waterIn={plant.waterIn} />
+        const uniqueId = plant.plantid + '' + getRandomNumber();
+        return <Card key={uniqueId} id={plant.plantid} pictures={plant.pictures} userId={userId} waterIn={plant.waterIn} />
       })}
     </div>
   )
