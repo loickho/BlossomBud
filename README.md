@@ -26,8 +26,9 @@ Database: The application uses MongoDB as its database to store plant and user d
 - Changing the addPlant dropdown into a textbox, that, when text is entered, will search for matches. If none are found, the user types in the name of the plant and the app makes an API call to openAI to grab the relevant data, then saves the data in the database.
 - The diary needs some work.
 - Refactoring the getUserPlant endpoint; the way it is now, if a user adds two of the same plant, the images get switched up.
+- Implementing redux to manage state. There is currently quite a bit of prop drilling going on.
 - Turning the app into a PWA.
-- Making it so that when the app is opened on web, it will show what the app can do, and will tell the user to open on mobile to download. When the user opens on mobile, instructions pop up telling them how to install a PWA. 
+- Making it so that when the app is opened on web, it will show what the app can do, and will tell the user to open on mobile to download. When the user opens on mobile, instructions pop up telling them how to install a PWA.
 
 ## To run the app:
 Start the client with `npm run dev`
