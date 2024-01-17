@@ -8,7 +8,6 @@ export default function ProfileScreen ({ setIsAuthenticated }) {
   let navigate = useNavigate();
 
   const handleClick = () => {
-    console.log('clicked')
     apiService.logout();
     handleAuth();
   };

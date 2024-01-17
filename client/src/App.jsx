@@ -4,7 +4,6 @@ import MenuBar from './components/MenuBar/MenuBar';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Header from './components/Header/Header';
 import PlantDetailsPage from './pages/PlantDetailPage';
-import DiaryPage from './pages/DiaryPage';
 import AddPlantPage from './pages/AddPlantPage';
 import RegisterLoginPage from './pages/RegisterLoginPage';
 import Profile from './pages/ProfilePage';
@@ -30,7 +29,6 @@ function App() {
       });
 
       const data = await response.json();
-      console.log(data)
       setUserId(data._id);
     } catch (err) {
       console.error(err);
@@ -57,14 +55,6 @@ function App() {
           path="/myPlant/:plantId"
           element={<PrivateRoute
                       element={<PlantDetailsPage userId={userId}/>}
-                      isAuthenticated={isAuthenticated}
-                      fallbackPath="/login"
-                    />}
-        />
-        <Route
-          path="/myplant/:plantId/diary"
-          element={<PrivateRoute
-                      element={<DiaryPage userId={userId} />}
                       isAuthenticated={isAuthenticated}
                       fallbackPath="/login"
                     />}

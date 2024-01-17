@@ -43,7 +43,6 @@ const Login = ({ getUserId, setIsAuthenticated }) => {
 
   return (
     <div className="login">
-      {/* <h2 className='header' id="login-header">Login</h2> */}
       <form className="login-form" onSubmit={handleSubmit}>
         <input
           type="text"

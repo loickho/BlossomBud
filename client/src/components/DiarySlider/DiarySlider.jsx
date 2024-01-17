@@ -1,9 +1,8 @@
 import './DiarySlider.css';
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function DiarySlider ({ selectedOption, setSelectedOption, plantId }) {
+export default function DiarySlider ({ selectedOption, setSelectedOption }) {
   const { plantId } = useParams();
 
   const handleClick = (option) => {
@@ -22,7 +21,7 @@ export default function DiarySlider ({ selectedOption, setSelectedOption, plantI
         className={selectedOption === 'DIARY' ? 'selected' : ''}
         onClick={() => handleClick('DIARY')}
       >
-        <Link className='slider' to={`/myplant/${plantId}/diary`}>DIARY</Link>
+        <Link className='slider' to={`/myplant/${plantId}`}>DIARY</Link>
       </button>
     </div>
   )

@@ -2,10 +2,8 @@ const { userTable } = require('../models/users.models');
 const { isValidObjectId } = require('mongoose');
 
 const authMiddleware = async (req, res, next) => {
-  console.log('fired')
   try {
     const { uid } = req.session;
-    console.log({uid})
     if (!isValidObjectId(uid)) {
       throw new Error('Invalid user ID');
     }
