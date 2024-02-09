@@ -17,7 +17,7 @@ function PrivateRoute ({ element, isAuthenticated, fallbackPath = '/login' }) {
 function App() {
   const initialState = auth.isAuthenticated();
   const [isAuthenticated, setIsAuthenticated] = useState(initialState);
-  const [userId, setUserId] = useState('65a3bc46cf27217f859a6002');
+  const [userId, setUserId] = useState('');
 
   async function getUserId() {
     try {

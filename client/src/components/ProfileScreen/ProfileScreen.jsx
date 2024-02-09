@@ -20,6 +20,7 @@ export default function ProfileScreen ({ setIsAuthenticated }) {
   return (
     <div className="profile-screen">
       <button className='logout-button button' onClick={handleClick}>
+        {/* TODO:  clear userPlants state on logout (perhaps create context)*/}
         Log out
       </button>
     </div>

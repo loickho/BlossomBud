@@ -2,8 +2,8 @@ const BASE_URL = 'http://localhost:3000';
 
 const apiService = {};
 
-apiService.fetchUserPlants = (userId) => {
-  return fetch(`${BASE_URL}/mygarden/${userId}`, {
+apiService.fetchUserPlants = async (userId) => {
+  return await fetch(`${BASE_URL}/mygarden/${userId}`, {
     method: 'GET',
     credentials: 'include',
     mode: 'cors',
@@ -13,8 +13,8 @@ apiService.fetchUserPlants = (userId) => {
   .catch((err) => console.log(err))
 }
 
-apiService.fetchPlantDetails = (userId, plantId) => {
-  return fetch(`${BASE_URL}/mygarden/${userId}/${plantId}`, {
+apiService.fetchPlantDetails = async (userId, plantId) => {
+  return await fetch(`${BASE_URL}/mygarden/${userId}/${plantId}`, {
     method: 'GET',
     credentials: 'include',
     mode: 'cors',
@@ -24,8 +24,8 @@ apiService.fetchPlantDetails = (userId, plantId) => {
   .catch((err) => console.log(err))
 }
 
-apiService.getAllPlants = () => {
-  return fetch(`${BASE_URL}/getall`, {
+apiService.getAllPlants = async () => {
+  return await fetch(`${BASE_URL}/getall`, {
     method: 'GET',
     credentials: 'include',
     mode: 'cors',
@@ -35,8 +35,8 @@ apiService.getAllPlants = () => {
   .catch((err) => console.log(err))
 }
 
-apiService.updateWaterIn = (userId, plantId, waterIn) => {
-  return fetch(`${BASE_URL}/mygarden/${userId}/${plantId}`, {
+apiService.updateWaterIn = async (userId, plantId, waterIn) => {
+  return await fetch(`${BASE_URL}/mygarden/${userId}/${plantId}`, {
     method: 'PUT',
     credentials: 'include',
     mode: 'cors',
@@ -47,8 +47,8 @@ apiService.updateWaterIn = (userId, plantId, waterIn) => {
   .catch((err) => console.log(err))
 }
 
-apiService.register = (user) => {
-  return fetch(`${BASE_URL}/register`, {
+apiService.register = async (user) => {
+  return await fetch(`${BASE_URL}/register`, {
     method: 'POST',
     credentials: 'include',
     mode: 'cors',
@@ -59,8 +59,8 @@ apiService.register = (user) => {
     .catch((err) => console.log(err));
 };
 
-apiService.login = (user) => {
-  return fetch(`${BASE_URL}/login`, {
+apiService.login = async (user) => {
+  return await fetch(`${BASE_URL}/login`, {
     method: 'POST',
     credentials: 'include',
     mode: 'cors',
@@ -71,8 +71,8 @@ apiService.login = (user) => {
     .catch((err) => console.log(err));
 };
 
-apiService.profile = () => {
-  return fetch(`${BASE_URL}/me`, {
+apiService.profile = async () => {
+  return await fetch(`${BASE_URL}/me`, {
     method: 'GET',
     credentials: 'include',
     mode: 'cors',
@@ -82,8 +82,8 @@ apiService.profile = () => {
     .catch((err) => console.log(err));
 };
 
-apiService.logout = () => {
-  return fetch(`${BASE_URL}/logout`, {
+apiService.logout = async () => {
+  return await fetch(`${BASE_URL}/logout`, {
     method: 'POST',
     credentials: 'include',
     mode: 'cors',

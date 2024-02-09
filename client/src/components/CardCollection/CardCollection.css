@@ -6,3 +6,11 @@
   margin-left: 8%;
   margin-right: 8%;
 }
+
+.first-plant-container {
+  background-color: #60BA60AF;
+  border-radius: 12px;
+  margin-top: 25px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
