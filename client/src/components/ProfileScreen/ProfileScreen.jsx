@@ -4,7 +4,6 @@ import apiService from '../../ApiService';
 import './ProfileScreen.css'
 
 export default function ProfileScreen ({ setIsAuthenticated }) {
-
   let navigate = useNavigate();
 
   const handleClick = () => {
