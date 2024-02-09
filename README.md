@@ -15,6 +15,9 @@ Never forget to water your plants again! BlossomBud reminds users about when to 
 4. Diary Functionality
 Users can upload photos to keep track of their plants' growth and see how they blossom over time!
 
+<img src="https://github.com/loickho/BlossomBud/blob/master/Garden.png?raw=true" alt="Screenshot of the garden page." height="500" />
+<img src="https://github.com/loickho/BlossomBud/blob/master/plant-details.png?raw=true" alt="Screenshot of the plant details page." height="500" />
+
 ## Tech Stack
 Front-end: The front-end of the application is built using React.
 
